@@ -28,10 +28,11 @@ router.get('/yquote', function (req, res, next) {
    'msg' : 'Hello World!'
   });
 
+   var ticker = req.query.text;
   var options = {
     hostname: 'finance.yahoo.com',
     port: 80,
-    path: '/webservice/v1/symbols/MSFT/quote?format=json',
+    path: "/webservice/v1/symbols/"+ticker+"/quote?format=json",
     method: 'GET'
     // headers: {
     //   'Content-Type': 'application/x-www-form-urlencoded',
@@ -60,8 +61,8 @@ router.get('/yquote', function (req, res, next) {
       var parsed = JSON.parse(body);
       fields = parsed.list.resources[0].resource.fields;
       output = fields.name + " " + fields.symbol + " " + fields.price;
-      console.log(output);
-      output += JSON.stringify(req.query);
+      //console.log(output);
+      //output += JSON.stringify(req.query);
       res.send(output);
 
     });
