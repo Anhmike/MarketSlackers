@@ -23,7 +23,19 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/dew', function(req, res, next) {
-  return res.status(200).json({text:"Hello there"});
+  var body = req.body;
+  if(body.help){
+    return res.status(200).json({text:"I am Dew! I will be your financial advisor."+
+      +" I will help you to learn about investing."
+      +"I will also help you to build a portfolio and track progress overtime."});
+  }
+//help
+//I am Dew! I will be your financial advisor. I will help you to learn about investing.
+//I would also help you to build a portfolio and track progress overtime.
+
+
+  //return "What is your age?"
+  //return res.status(200).json({text:"Hello there"});
 });
 
 router.post('/buy', function (req, res, next) {
