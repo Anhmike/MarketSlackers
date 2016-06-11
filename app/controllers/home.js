@@ -19,8 +19,12 @@ router.get('/', function (req, res, next) {
   //     articles: articles
   //   });
   //
-    return "Hello World";
+    return res.status(200).send("Hello THere");
 
+});
+
+router.post('/dew', function(req, res, next) {
+  return res.status(200).send("Hello there");
 });
 
 router.get('/yquote', function (req, res, next) {
