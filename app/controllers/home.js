@@ -41,17 +41,15 @@ router.post('/dew', function(req, res, next) {
 });
 
 router.get('/buy', function (req, res, next) {
+
  var ticker = req.query.text;
- var userid = req.query.userid;
+ var userid = req.query;
+ res.send(userid);
  var options = {
   hostname: 'finance.yahoo.com',
   port: 80,
   path: "/webservice/v1/symbols/"+ticker+"/quote?format=json",
   method: 'GET'
-    // headers: {
-    //   'Content-Type': 'application/x-www-form-urlencoded',
-    //   'Content-Length': postData.length
-    // }
   };
 
   var apiRequest = http.request(options, (apiResponse) => {
@@ -72,11 +70,10 @@ router.get('/buy', function (req, res, next) {
       //console.log(output);
       //output += JSON.stringify(req.query);
       res.send(output);
-      res.send(userid);
-      }
-      else {
-        res.status(404).send(text);
-      }
+    }
+    else {
+      res.status(404).send("Ticker not found");
+    }
   });
   });
 
@@ -84,9 +81,9 @@ router.get('/buy', function (req, res, next) {
     console.log(`problem with request: ${e.message}`);
   });
 
-  // write data to request body
   apiRequest.end();
 });
+
 
 router.get('/yquote', function (req, res, next) {
 
