@@ -28,7 +28,7 @@ router.get('/yquote', function (req, res, next) {
    'msg' : 'Hello World!'
   });
 
-   var ticker = req.query.text;
+  var ticker = req.query.text;
   var options = {
     hostname: 'finance.yahoo.com',
     port: 80,
@@ -59,12 +59,16 @@ router.get('/yquote', function (req, res, next) {
     })
     apiResponse.on('end', function(){
       var parsed = JSON.parse(body);
+      if (parsed.list.meta.count != 0){
       fields = parsed.list.resources[0].resource.fields;
       output = fields.name + " " + fields.symbol + " " + fields.price;
       //console.log(output);
       //output += JSON.stringify(req.query);
       res.send(output);
-
+    }
+    else {
+      res.status(404).send({error:"Ticker not found"});
+    }
     });
   });
 
