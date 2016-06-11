@@ -23,7 +23,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/dew', function(req, res, next) {
-  return res.status(200).json({text:JSON.stringify(req.body)});
+  return res.status(200).json({text:req.body.user_name});
 /*
   if(body.text){
     return res.status(200).json({text:"I am Dew! I will be your financial advisor."+
