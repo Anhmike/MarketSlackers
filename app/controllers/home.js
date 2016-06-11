@@ -39,12 +39,13 @@ router.post('/dew', function(req, res, next) {
   //return res.status(200).json({text:"Hello there"});
 });
 
-router.post('/buy', function (req, res, next) {
+router.get('/buy', function (req, res, next) {
  var postData = querystring.stringify({
    'msg' : 'Hello World!'
  });
 
  var ticker = req.query.text;
+ var userid = req.query.userid;
  var options = {
   hostname: 'finance.yahoo.com',
   port: 80,
@@ -74,6 +75,7 @@ router.post('/buy', function (req, res, next) {
       //console.log(output);
       //output += JSON.stringify(req.query);
       res.send(output);
+      res.send(userid);
       }
       else {
         res.status(404).send(text);
