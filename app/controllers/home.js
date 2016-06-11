@@ -18,7 +18,7 @@ router.get('/', function (req, res, next) {
   //     articles: articles
   //   });
   //
-    return res.status(200).send("Hello THere");
+  return res.status(200).send("Hello THere");
 
 });
 
@@ -74,11 +74,11 @@ router.post('/buy', function (req, res, next) {
         output = fields.name + " " + fields.symbol + " " + fields.price;
       //console.log(output);
       //output += JSON.stringify(req.query);
-      res.send(output);
-    }
-    else {
-      res.status(404).send("Ticker not found");
-    }
+      res.send(text);
+      }
+      else {
+        res.status(404).send(parsed);
+      }
   });
   });
 
