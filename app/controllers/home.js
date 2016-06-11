@@ -20,8 +20,22 @@ router.get('/', function (req, res, next) {
   //   });
   //
     return "Hello World";
-  
+
 });
+router.post('/dew', function (req, res, next) {
+  res.status(200).json({text:'hello to Roboadvisor'});
+  // Article.find(function (err, articles) {
+  //   if (err) return next(err);
+  //   res.render('index', {
+  //     title: 'Generator-Express MVC',
+  //     articles: articles
+  //   });
+  //
+    //return "Hello World";
+
+});
+
+
 
 router.get('/yquote', function (req, res, next) {
    var postData = querystring.stringify({
