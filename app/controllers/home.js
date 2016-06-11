@@ -41,10 +41,6 @@ router.post('/dew', function(req, res, next) {
 });
 
 router.get('/buy', function (req, res, next) {
- var postData = querystring.stringify({
-   'msg' : 'Hello World!'
- });
-
  var ticker = req.query.text;
  var userid = req.query.userid;
  var options = {
@@ -89,7 +85,6 @@ router.get('/buy', function (req, res, next) {
   });
 
   // write data to request body
-  //req.write(postData);
   apiRequest.end();
 });
 
@@ -101,10 +96,6 @@ router.get('/yquote', function (req, res, next) {
   port: 80,
   path: "/webservice/v1/symbols/"+ticker+"/quote?format=json",
   method: 'GET'
-    // headers: {
-    //   'Content-Type': 'application/x-www-form-urlencoded',
-    //   'Content-Length': postData.length
-    // }
   };
 
   var apiRequest = http.request(options, (apiResponse) => {
