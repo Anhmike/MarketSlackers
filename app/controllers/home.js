@@ -39,8 +39,9 @@ router.get('/yquote', function (req, res, next) {
     // }
   };
 
-  var req = http.request(options, (apiResponse) => {
-    console.log('hello');
+  var apiRequest = http.request(options, (apiResponse) => {
+
+
     console.log(`STATUS: ${res.statusCode}`);
     console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
 
@@ -60,15 +61,17 @@ router.get('/yquote', function (req, res, next) {
       fields = parsed.list.resources[0].resource.fields;
       output = fields.name + " " + fields.symbol + " " + fields.price;
       console.log(output);
+      output += JSON.stringify(req.query);
       res.send(output);
+
     });
   });
 
-  req.on('error', (e) => {
+  apiRequest.on('error', (e) => {
     console.log(`problem with request: ${e.message}`);
   });
 
   // write data to request body
   //req.write(postData);
-  req.end();
+  apiRequest.end();
 });
