@@ -24,7 +24,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/dew', function(req, res, next) {
-  return res.status(200).send("Hello there");
+  return res.status(200).json({text:"Hello there"});
 });
 
 router.get('/yquote', function (req, res, next) {
