@@ -18,6 +18,7 @@ router.get('/', function (req, res, next) {
   //     title: 'Generator-Express MVC',
   //     articles: articles
   //   });
+  //
     return "Hello World";
   
 });
