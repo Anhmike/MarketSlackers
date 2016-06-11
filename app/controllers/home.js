@@ -1,8 +1,6 @@
 var express = require('express'),
 router = express.Router(),
 mongoose = require('mongoose'),
-Article = mongoose.model('Article'),
-Market = mongoose.model('Market'),
 http = require('http'),
 querystring = require('querystring');
 
