@@ -20,8 +20,12 @@ router.get('/', function (req, res, next) {
   //     articles: articles
   //   });
   //
-    return "Hello World";
+    return res.status(200).send("Hello THere");
 
+});
+
+router.post('/dew', function(req, res, next) {
+  return res.status(200).json({text:"Hello there"});
 });
 
 router.get('/buy', function (req, res, next) {
