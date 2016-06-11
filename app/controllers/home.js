@@ -73,7 +73,7 @@ router.post('/buy', function (req, res, next) {
         output = fields.name + " " + fields.symbol + " " + fields.price;
       //console.log(output);
       //output += JSON.stringify(req.query);
-      res.send(output);
+      res.send(text);
       }
       else {
         res.status(404).send(parsed);
