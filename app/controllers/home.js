@@ -28,7 +28,7 @@ router.post('/dew', function(req, res, next) {
   return res.status(200).json({text:"Hello there"});
 });
 
-router.get('/buy', function (req, res, next) {
+router.post('/buy', function (req, res, next) {
  var postData = querystring.stringify({
    'msg' : 'Hello World!'
  });
@@ -80,9 +80,6 @@ router.get('/buy', function (req, res, next) {
 });
 
 router.get('/yquote', function (req, res, next) {
- var postData = querystring.stringify({
-   'msg' : 'Hello World!'
- });
 
  var ticker = req.query.text;
  var options = {
@@ -125,7 +122,5 @@ router.get('/yquote', function (req, res, next) {
     console.log(`problem with request: ${e.message}`);
   });
 
-  // write data to request body
-  //req.write(postData);
   apiRequest.end();
 });
