@@ -9,7 +9,7 @@ var config = {
       name: 'marketslackers'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://localhost/marketslackers-development'
+    db: process.env.MONGOLAB_URI
   },
 
   test: {
@@ -18,7 +18,7 @@ var config = {
       name: 'marketslackers'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://localhost/marketslackers-test'
+    db: process.env.MONGOLAB_URI
   },
 
   production: {
@@ -27,7 +27,7 @@ var config = {
       name: 'marketslackers'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://localhost/marketslackers-production'
+    db: process.env.MONGOLAB_URI
   }
 };
 
