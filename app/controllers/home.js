@@ -24,7 +24,8 @@ router.get('/', function (req, res, next) {
 
 router.post('/dew', function(req, res, next) {
   var body = req.body;
-  if(body.help){
+  return res.status(200).json({text:JSON.stringify(body)});
+  if(body.text){
     return res.status(200).json({text:"I am Dew! I will be your financial advisor."+
       +" I will help you to learn about investing."
       +"I will also help you to build a portfolio and track progress overtime."});
